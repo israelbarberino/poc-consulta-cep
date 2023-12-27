@@ -14,6 +14,8 @@ A API ViaCep fornece informações sobre localidades no Brasil com base no CEP.
   | Parâmetro | Tipo   | Descrição                         |
     | --------- | ------ | --------------------------------- |
   | cep       | string | CEP no formato XXXXX-XXX ou XXXXXXXX |
+
+
   **Obs**.: Ainda não foi adicionado suporte ao tratamento de erros para inserção de letras ou outros caracteres especiais.
 
 

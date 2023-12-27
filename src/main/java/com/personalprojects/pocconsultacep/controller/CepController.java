@@ -1,28 +1,36 @@
 package com.personalprojects.pocconsultacep.controller;
 
-import com.personalprojects.pocconsultacep.dtos.ViaCepResponse;
-import com.personalprojects.pocconsultacep.services.ViaCepService;
+import com.personalprojects.pocconsultacep.entities.CepDetailsInfo;
+import com.personalprojects.pocconsultacep.entities.User;
+import com.personalprojects.pocconsultacep.services.CepService;
+import com.personalprojects.pocconsultacep.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cep")
 public class CepController {
 
-    private final ViaCepService viaCepService;
+    private final CepService cepService;
+    private final UserService userService;
 
     @Autowired
-    public CepController(ViaCepService viaCepService) {
-        this.viaCepService = viaCepService;
+    public CepController(CepService cepService, UserService userService) {
+        this.cepService = cepService;
+        this.userService = userService;
     }
 
     @GetMapping("/{cep}")
-    public ResponseEntity<ViaCepResponse> getCep(@PathVariable String cep) {
-        ViaCepResponse viaCepResponse = viaCepService.getCepInformation(cep);
-        return ResponseEntity.ok(viaCepResponse);
+    public ResponseEntity<CepDetailsInfo> getCep(@PathVariable String cep) {
+        CepDetailsInfo cepDetailsInfo = cepService.getCepInformation(cep);
+        return ResponseEntity.ok(cepDetailsInfo);
     }
+
+    @PostMapping
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        User createdUser = userService.createUser(user);
+        return ResponseEntity.ok(createdUser);
+    }
+
 }

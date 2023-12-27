@@ -1,4 +1,4 @@
-package com.personalprojects.pocconsultacep.dtos;
+package com.personalprojects.pocconsultacep.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
