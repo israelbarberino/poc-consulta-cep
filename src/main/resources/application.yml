@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: ms-order
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/ms_consultacep
+    username: postgres
+    password: root
+
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lab:
+            non_contextual_creation: true
+viacep:
+  base-url: http://viacep.com.br/ws/
+
+ibge:
+  base-url: https://servicodados.ibge.gov.br/api/v1
+
